@@ -18,7 +18,7 @@ public class MainRange {
 
         Range range = new Range(from, to);
 
-        double interval = range.calcInterval();
+        double interval = range.calcLength();
         System.out.printf("Длина интервала: %.3f%n", interval);
 
         System.out.println("Введите x: ");
