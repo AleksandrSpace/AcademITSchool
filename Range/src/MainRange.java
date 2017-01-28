@@ -1,8 +1,10 @@
-package ru.academits.space.range;
-
+/**
+ * Created by Александр on 28.01.2017.
+ */
 import java.util.Scanner;
 
 public class MainRange {
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
