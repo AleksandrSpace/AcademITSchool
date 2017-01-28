@@ -1,6 +1,8 @@
-/**
+package ru.academits.space.mainrange; /**
  * Created by Александр on 28.01.2017.
  */
+import ru.academits.space.range.Range;
+
 import java.util.Scanner;
 
 public class MainRange {
@@ -8,7 +10,7 @@ public class MainRange {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
-        System.out.println("Создать свой класс Range (числовой диапазон). ");
+        System.out.println("Создать свой класс ru.academits.space.range.Range (числовой диапазон). ");
         System.out.println("Введите начало и конец диапазона: ");
 
         double from = in.nextDouble();

@@ -1,3 +1,5 @@
+package ru.academits.space.range;
+
 import java.util.Scanner;
 
 /**
@@ -26,7 +28,7 @@ public class Range {
         public static void main(String[] args) {
             Scanner in = new Scanner(System.in);
 
-            System.out.println("Создать свой класс Range (числовой диапазон). ");
+            System.out.println("Создать свой класс ru.academits.space.range.Range (числовой диапазон). ");
             System.out.println("Введите начало и конец диапазона: ");
 
             double from = in.nextDouble();
