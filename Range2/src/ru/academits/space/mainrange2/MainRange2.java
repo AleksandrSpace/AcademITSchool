@@ -2,6 +2,7 @@ package ru.academits.space.mainrange2;
 
 import ru.academits.space.range2.Range2;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -20,11 +21,8 @@ public class MainRange2 {
 
         Range2 range = new Range2(from, to);
 
-        range.setFrom(from);
-        range.setTo(to);
-
-        System.out.printf("%.3f%n", range.getFrom());
-        System.out.printf("%.3f%n", range.getTo());
+  //      System.out.printf("%.3f%n", range.getFrom());
+ //       System.out.printf("%.3f%n", range.getTo());
 
         System.out.println("Введите начало и конец  второго диапазона: ");
 
@@ -36,8 +34,8 @@ public class MainRange2 {
         range2.setFrom(from);
         range2.setTo(to);
 
-        System.out.printf("%.3f%n", range2.getFrom());
-        System.out.printf("%.3f%n", range2.getTo());
+  //   System.out.printf("%.3f%n", range2.getFrom());
+     //   System.out.printf("%.3f%n", range2.getTo());
 
 
         double interval = range.calcLength();
@@ -47,6 +45,16 @@ public class MainRange2 {
         System.out.printf("Длина  второго интервала: %.3f%n", interval2);
 
 
+
+
+
+
+
+
+        //      System.out.printf("%.3f%n", range2.getIntersection(range2).getTo());
+
+
+        //   public Range2 getIntersection(Range2 range2)
 
         /*
         System.out.println("Введите x: ");
