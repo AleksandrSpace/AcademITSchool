@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 public class Range {
 
-    private static final double EPSILON = 1.0e-10;
     private double from;
     private double to;
 
@@ -37,7 +36,7 @@ public class Range {
         }
     }
 
-    public Range[] getAssociation(Range range2) {
+    public Range[] getUnion(Range range2) {
 
         if (Math.min(to, range2.to) < Math.max(from, range2.from)) {
             return new Range[]{new Range(Math.min(from, range2.from), Math.min(to, range2.to)),
@@ -48,16 +47,18 @@ public class Range {
     }
 
     public Range[] getSubtraction(Range range2) {
-        if ((to < range2.from)) {                                                                  // 3
+        if ((to < range2.from)) {
             return new Range[]{new Range(from, to)};
-        } else if ((from < range2.from) && (range2.to < to)) {                                     // 4
+        } else if ((from < range2.from) && (range2.to < to)) {
             return new Range[]{new Range(from, range2.from), new Range(range2.to, to)};
-        } else if (from < range2.from) {                                                           // 1
+        } else if (from < range2.from) {
             return new Range[]{new Range(from, range2.from)};
-        } else if ((from - range2.from <= EPSILON) && (range2.to < to)) {                          // 2
+        } else if ((from - range2.from == 0) && (range2.to < to)) {
+            return new Range[]{new Range(range2.to, to)};
+        } else if (range2.to < to) {
             return new Range[]{new Range(range2.to, to)};
         } else {
-            return null;
+            return new Range[]{};
         }
     }
 

@@ -38,15 +38,11 @@ public class MainRange {
             System.out.printf("Пересечение интервала: (%.2f, %.2f)%n", range3.getFrom(), range3.getTo());
         }
 
-        Range[] range4 = range.getAssociation(range2);
+        Range[] range4 = range.getUnion(range2);
         System.out.printf("Объединение двух интервалов, новый интервал: %s%n", Range.toString(range4));
 
         Range[] range5 = range.getSubtraction(range2);
-        if (range5 == null) {
-            System.out.println("Разности двух интервалов нет.");
-        } else {
             System.out.printf("Разности двух интервалов, новый интервал: %s%n", Range.toString(range5));
-        }
 
         System.out.println();
         System.out.println("Введите x: ");
