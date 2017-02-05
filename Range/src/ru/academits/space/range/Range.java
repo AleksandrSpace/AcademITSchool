@@ -15,7 +15,6 @@ public class Range {
 
     public static String toString(Range[] rangeArray) {
         return Arrays.toString(rangeArray);
-
     }
 
     public double getFrom() {
@@ -64,6 +63,10 @@ public class Range {
 
     public boolean isInside(double x) {
         return x >= from && x <= to;
+    }
+
+    public String toString() {
+        return "(" + from + "," + to + ")";
     }
 }
 
