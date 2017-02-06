@@ -47,14 +47,12 @@ public class Range {
     }
 
     public Range[] getSubtraction(Range range2) {
-        if ((to < range2.from)) {
+        if ((to < range2.from) || (range2.to < from)) {
             return new Range[]{new Range(from, to)};
         } else if ((from < range2.from) && (range2.to < to)) {
             return new Range[]{new Range(from, range2.from), new Range(range2.to, to)};
         } else if (from < range2.from) {
             return new Range[]{new Range(from, range2.from)};
-        } else if ((from - range2.from == 0) && (range2.to < to)) {
-            return new Range[]{new Range(range2.to, to)};
         } else if (range2.to < to) {
             return new Range[]{new Range(range2.to, to)};
         } else {
