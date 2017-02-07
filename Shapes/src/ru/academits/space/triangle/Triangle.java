@@ -1,3 +1,7 @@
+package ru.academits.space.triangle;
+
+import ru.academits.space.shapes.Shapes;
+
 import java.util.Arrays;
 
 

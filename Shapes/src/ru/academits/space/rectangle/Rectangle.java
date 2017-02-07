@@ -1,3 +1,7 @@
+package ru.academits.space.rectangle;
+
+import ru.academits.space.square.Square;
+
 public class Rectangle extends Square {
     private double width;
 

@@ -1,3 +1,5 @@
+package ru.academits.space.shapes;
+
 public class Shapes {
 
     Shapes() {

@@ -1,3 +1,7 @@
+package ru.academits.space.circle;
+
+import ru.academits.space.shapes.Shapes;
+
 public class Circle extends Shapes {
 
     private double radius;

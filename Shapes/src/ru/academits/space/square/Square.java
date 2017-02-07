@@ -1,3 +1,7 @@
+package ru.academits.space.square;
+
+import ru.academits.space.shapes.Shapes;
+
 public class Square extends Shapes {
 
     private double length;
