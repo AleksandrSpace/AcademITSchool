@@ -1,5 +1,3 @@
-package ru.academits.space.shapes;
-
 /**
  * Created by Александр on 23.01.2017.
  */
