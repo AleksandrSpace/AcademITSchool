@@ -15,7 +15,7 @@ public class Rectangle implements Shape {
     }
 
     public double getHeight() {
-        return width;
+        return length;
     }
 
     public double getArea() {
@@ -31,12 +31,14 @@ public class Rectangle implements Shape {
     }
 
     public boolean equals(Object o) {
-        {
-            if (o == this) return true;
-            if (o == null || o.getClass() != this.getClass()) return false;
-            Rectangle rectangle = (Rectangle) o;
-            return length == rectangle.length && width == rectangle.width;
+        if (o == this) {
+            return true;
         }
+        if (o == null || o.getClass() != this.getClass()) {
+            return false;
+        }
+        Rectangle rectangle = (Rectangle) o;
+        return length == rectangle.length && width == rectangle.width;
     }
 
     public int hashCode() {

@@ -52,6 +52,7 @@ public class Main {
         for (Shape e : shape) {
             if (array[array.length - 2] == e.getPerimeter()) {
                 record2 = e;
+                break;
             }
         }
         return record2;

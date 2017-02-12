@@ -8,7 +8,6 @@ public class Triangle implements Shape {
     private double y2;
     private double x3;
     private double y3;
-    private String name = "Треугольник";
 
     public Triangle(double x1, double y1, double x2, double y2, double x3, double y3) {
         this.x1 = x1;
@@ -40,6 +39,7 @@ public class Triangle implements Shape {
         double semiPerimeter = (a + b + c) / 2;
 
         return Math.sqrt(semiPerimeter * (semiPerimeter - a) * (semiPerimeter - b) * (semiPerimeter - c));
+
     }
 
     public double getPerimeter() {
@@ -47,18 +47,20 @@ public class Triangle implements Shape {
     }
 
     public String toString() {
-        return name;
+        return " Треугольник ";
     }
 
     public boolean equals(Object o) {
-        {
-            if (o == this) return true;
-            if (o == null || o.getClass() != this.getClass()) return false;
-            Triangle triangle = (Triangle) o;
-            return x1 == triangle.x1 && x2 == triangle.x2 && x3 == triangle.x3 && y1 == triangle.y1 && y2 == triangle.y2
-                    && y3 == triangle.y3;
 
+        if (o == this) {
+            return true;
         }
+        if (o == null || o.getClass() != this.getClass()) {
+            return false;
+        }
+        Triangle triangle = (Triangle) o;
+        return x1 == triangle.x1 && x2 == triangle.x2 && x3 == triangle.x3 && y1 == triangle.y1 && y2 == triangle.y2
+                && y3 == triangle.y3;
     }
 
     public int hashCode() {
