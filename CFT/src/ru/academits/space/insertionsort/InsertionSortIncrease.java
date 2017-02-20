@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class InsertionSortIncrease {
 
-    public static ArrayList sorting(ArrayList line) {
+    public static ArrayList<Integer> sorting(ArrayList line) {
 
         for (int i = 1; i < line.size(); ++i) {
 

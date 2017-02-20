@@ -7,14 +7,14 @@ import java.util.ArrayList;
  */
 public class InsertionSortStringIncrease {
 
-    public static ArrayList sorting(ArrayList line) {
+    public static ArrayList<String> sorting(ArrayList line) {
 
         for (int i = 1; i < line.size(); ++i) {
 
             Object memory = line.get(i);
             int j = i;
 
-            while (j > 0 && (SortingToString.sorting(line.get(j - 1), memory)) > 0) {
+            while (j > 0 && line.get(j - 1).toString().compareTo(memory.toString()) > 0) {
 
                 line.set(j, line.get(j - 1));
                 --j;

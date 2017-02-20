@@ -20,66 +20,60 @@ public class MainCFT {
             return;
         }
 
-        if (args[0].equals("inputCFTString.txt") || args[0].equals("inputCFTInt.txt")) {
+        try (Scanner scan = new Scanner(new FileInputStream(args[0]));
+             PrintWriter writer = new PrintWriter(args[1])) {
 
-            try (Scanner scan = new Scanner(new FileInputStream(args[0]));
-                 PrintWriter writer = new PrintWriter(args[1])) {
-                if (args[0].equals("inputCFTInt.txt") && args[2].equals("-i")) {
-
-                    ArrayList<Integer> line = new ArrayList<>(20);
+            switch (args[2]) {
+                case "-i": {
+                    ArrayList<Integer> line = new ArrayList<>(100);
                     while (scan.hasNextInt()) {
                         line.add(scan.nextInt());
                     }
-
-                    if (args[3].equals("-a")) {
-
-                        for (Object e : InsertionSortIncrease.sorting(line)) {
-                            writer.println(e);
-                        }
-
-                    } else if (args[3].equals("-d")) {
-
-                        for (Object e : InsertionSortDecrease.sorting(line)) {
-                            writer.println(e);
-                        }
-
-                    } else {
-                        System.out.println(" Не коректный аргумент. ");
+                    switch (args[3]) {
+                        case "-a":
+                            for (Object e : InsertionSortIncrease.sorting(line)) {
+                                writer.println(e);
+                            }
+                            break;
+                        case "-d":
+                            for (Object e : InsertionSortDecrease.sorting(line)) {
+                                writer.println(e);
+                            }
+                            break;
+                        default:
+                            System.out.println(" Не коректная функция: increase, decrease ");
+                            break;
                     }
-
-                } else if (args[0].equals("inputCFTString.txt") && args[2].equals("-s")) {
-
-                    ArrayList<String> line = new ArrayList<>(20);
+                    break;
+                }
+                case "-s": {
+                    ArrayList<String> line = new ArrayList<>(100);
                     while (scan.hasNextLine()) {
                         line.add(scan.nextLine());
                     }
-
-                    if (args[3].equals("-a")) {
-
-                        for (Object e : InsertionSortStringIncrease.sorting(line)) {
-                            writer.println(e);
-                        }
-
-                    } else if (args[3].equals("-d")) {
-
-                        for (Object e : InsertionSortStringDecrease.sorting(line)) {
-                            writer.println(e);
-                        }
-
-                    } else {
-                        System.out.println(" Не коректный аргумент. ");
+                    switch (args[3]) {
+                        case "-a":
+                            for (Object e : InsertionSortStringIncrease.sorting(line)) {
+                                writer.println(e);
+                            }
+                            break;
+                        case "-d":
+                            for (Object e : InsertionSortStringDecrease.sorting(line)) {
+                                writer.println(e);
+                            }
+                            break;
+                        default:
+                            System.out.println(" Не коректная функция: increase, decrease  ");
+                            break;
                     }
-
-                } else {
-                    System.out.println(" Тип не соответствует заданной папке.");
+                    break;
                 }
-
-            } catch (FileNotFoundException e) {
-                System.out.println(" Не обнаружено указанного файла");
+                default:
+                    System.out.println(" Тип или String,  или Int не соответствует заданному .");
+                    break;
             }
-
-        } else {
-            System.out.println(" Не неправильно указан файл");
+        } catch (FileNotFoundException e) {
+            System.out.println(" Не обнаружено указанного файла");
         }
     }
 }
