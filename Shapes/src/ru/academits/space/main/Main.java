@@ -18,7 +18,7 @@ public class Main {
         System.out.printf(" Фигура %s, имеет максимальную площадь %.2f", s.toString(), s.getArea());
         System.out.println();
         Shape p = getSecondMaxPerimeter(shape);
-        System.out.printf(" Фигура %s, имеет периметр второй с конца %.2f", p.toString(), p.getPerimeter());
+        System.out.printf(" Фигура %s, имеет периметр, второй с конца %.2f", p.toString(), p.getPerimeter());
         System.out.println();
         System.out.printf(" Проверка на equals: %s", shape[2].equals(shape[3]));
         System.out.println();

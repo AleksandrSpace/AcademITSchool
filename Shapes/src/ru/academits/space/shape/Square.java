@@ -8,10 +8,6 @@ public class Square implements Shape {
         this.length = length;
     }
 
-    public double getLength() {
-        return length;
-    }
-
     public double getWidth() {
         return length;
     }
