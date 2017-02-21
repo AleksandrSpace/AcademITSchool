@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by Александр on 19.02.2017.
  */
 public class InsertionSortDecrease {
-    public static ArrayList<Integer> sorting(ArrayList line) {
+    public static ArrayList<Integer> sorting(ArrayList<Integer> line) {
 
         for (int i = 1; i < line.size(); ++i) {
 
