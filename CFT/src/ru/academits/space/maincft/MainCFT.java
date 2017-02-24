@@ -1,9 +1,6 @@
 package ru.academits.space.maincft;
 
-import ru.academits.space.insertionsort.InsertionSortDecrease;
-import ru.academits.space.insertionsort.InsertionSortIncrease;
-import ru.academits.space.insertionsort.InsertionSortStringDecrease;
-import ru.academits.space.insertionsort.InsertionSortStringIncrease;
+import ru.academits.space.insertionsort.*;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -17,6 +14,8 @@ public class MainCFT {
 
         if (args.length != 4) {
             System.out.println("Параметры командной строки не соответствуют программе.");
+            System.out.println();
+            EntryHelp.Help();
             return;
         }
 
@@ -31,9 +30,7 @@ public class MainCFT {
                     }
                     switch (args[3]) {
                         case "-a":
-                            for (Object e : InsertionSortIncrease.sorting(line)) {
-                                writer.println(e);
-                            }
+                            InsertionSortIncrease.sorting(line).forEach(writer::println);
                             break;
                         case "-d":
                             for (Object e : InsertionSortDecrease.sorting(line)) {
