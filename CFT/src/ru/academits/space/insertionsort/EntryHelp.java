@@ -4,7 +4,7 @@ package ru.academits.space.insertionsort;
  * Created by Александр on 24.02.2017.
  */
 public class EntryHelp {
-    public static void Help1() {
+    public static void Help() {
 
         System.out.println("Введите последовательно, через один пробел параметры: ");
         System.out.println("Есть два типа файлов: для строк и для чисел - intов ");
