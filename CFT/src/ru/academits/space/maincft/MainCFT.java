@@ -1,6 +1,9 @@
 package ru.academits.space.maincft;
 
-import ru.academits.space.insertionsort.*;
+import ru.academits.space.insertionsort.EntryHelp;
+import ru.academits.space.insertionsort.InsertionSort;
+import ru.academits.space.insertionsort.IntegerComparator;
+import ru.academits.space.insertionsort.StringComparator;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -10,7 +13,7 @@ import java.util.Scanner;
 
 
 public class MainCFT {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) { // throws FileNotFoundException {
 
         if (args.length != 4) {
             System.out.println("Параметры командной строки не соответствуют программе.");
@@ -24,18 +27,16 @@ public class MainCFT {
 
             switch (args[2]) {
                 case "-i": {
-                    ArrayList<Integer> line = new ArrayList<>(100);
+                    ArrayList<Integer> list = new ArrayList<>(100);
                     while (scan.hasNextInt()) {
-                        line.add(scan.nextInt());
+                        list.add(scan.nextInt());
                     }
                     switch (args[3]) {
                         case "-a":
-                            InsertionSortIncrease.sorting(line).forEach(writer::println);
+                            InsertionSort.sorting(list, new IntegerComparator()).forEach(writer::println);
                             break;
                         case "-d":
-                            for (Object e : InsertionSortDecrease.sorting(line)) {
-                                writer.println(e);
-                            }
+                            InsertionSort.sorting(list, new IntegerComparator().reversed()).forEach(writer::println);
                             break;
                         default:
                             System.out.println(" Не коректная функция: increase, decrease ");
@@ -44,20 +45,16 @@ public class MainCFT {
                     break;
                 }
                 case "-s": {
-                    ArrayList<String> line = new ArrayList<>(100);
+                    ArrayList<String> list = new ArrayList<>(100);
                     while (scan.hasNextLine()) {
-                        line.add(scan.nextLine());
+                        list.add(scan.nextLine());
                     }
                     switch (args[3]) {
                         case "-a":
-                            for (Object e : InsertionSortStringIncrease.sorting(line)) {
-                                writer.println(e);
-                            }
+                            InsertionSort.sorting(list, new StringComparator()).forEach(writer::println);
                             break;
                         case "-d":
-                            for (Object e : InsertionSortStringDecrease.sorting(line)) {
-                                writer.println(e);
-                            }
+                            InsertionSort.sorting(list, new StringComparator().reversed()).forEach(writer::println);
                             break;
                         default:
                             System.out.println(" Не коректная функция: increase, decrease  ");
@@ -74,4 +71,3 @@ public class MainCFT {
         }
     }
 }
-

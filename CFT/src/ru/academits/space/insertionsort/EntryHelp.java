@@ -9,7 +9,7 @@ public class EntryHelp {
         System.out.println("Введите последовательно, через один пробел параметры: ");
         System.out.println("Есть два типа файлов: для строк и для чисел - intов ");
         System.out.println("Файл из которого считать, с указанием пути: ");
-        System.out.println("Пример:..\\inputCFTInt.txt ");
+        System.out.println("Пример: ..\\inputCFTInt.txt ");
         System.out.println("Введите название файла которого нужно записать, с указанием пути где лежит:");
         System.out.println("Пример: ..\\outputCFT.txt");
         System.out.println("Введите тип строк или чисел для обработки: -i - для чисел, -s -для строк.");

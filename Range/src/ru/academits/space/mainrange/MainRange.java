@@ -10,16 +10,26 @@ public class MainRange {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
+
         System.out.println("Создать свой класс Range (числовой диапазон). ");
         System.out.println("Введите начало и конец первого диапазона: ");
 
         double from = in.nextDouble();
         double to = in.nextDouble();
 
-        Range range = new Range(from, to);
+        Range range = null;
 
-        double interval = range.calcLength();
-        System.out.printf("Длина первого интервала: %.3f%n", interval);
+        try {
+             range = new Range(from, to);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        //   Range range = new Range(from, to);
+
+        if(range != null) {
+            double interval = range.calcLength();
+            System.out.printf("Длина первого интервала: %.3f%n", interval);
+        }
 
         System.out.println("Введите начало и конец второго интервала: ");
 
@@ -30,6 +40,7 @@ public class MainRange {
 
         double interval2 = range2.calcLength();
         System.out.printf("Длина второго интервала: %.3f%n", interval2);
+
 
         Range range3 = range.getIntersection(range2);
         if (range3 == null) {
@@ -42,7 +53,7 @@ public class MainRange {
         System.out.printf("Объединение двух интервалов, новый интервал: %s%n", Range.toString(range4));
 
         Range[] range5 = range.getSubtraction(range2);
-            System.out.printf("Разности двух интервалов, новый интервал: %s%n", Range.toString(range5));
+        System.out.printf("Разности двух интервалов, новый интервал: %s%n", Range.toString(range5));
 
         System.out.println();
         System.out.println("Введите x: ");

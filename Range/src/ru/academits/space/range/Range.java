@@ -1,5 +1,7 @@
 package ru.academits.space.range;
 
+import ru.academits.space.ru.academits.space.exception.ShowErrorsException;
+
 import java.util.Arrays;
 
 public class Range {
@@ -8,12 +10,11 @@ public class Range {
     private double to;
 
     public Range(double from, double to) {
+        if (to < from) {
+            throw new ShowErrorsException("Конец меньше начала. ");
+        }
         this.from = from;
         this.to = to;
-    }
-
-    public static String toString(Range[] rangeArray) {
-        return Arrays.toString(rangeArray);
     }
 
     public double getFrom() {
@@ -62,6 +63,10 @@ public class Range {
 
     public boolean isInside(double x) {
         return x >= from && x <= to;
+    }
+
+    public static String toString(Range[] rangeArray) {
+        return Arrays.toString(rangeArray);
     }
 
     public String toString() {
