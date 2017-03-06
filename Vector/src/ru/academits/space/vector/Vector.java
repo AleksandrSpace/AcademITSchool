@@ -8,11 +8,11 @@ public class Vector {
     //   final double epsilon = 0.0001;
     private double[] vector;
 
-    public Vector(int n){
-        if (n <= 0){
-            throw new IllegalArgumentException ("Длина массива меньше нуля.");
+    public Vector(int n) {
+        if (n <= 0) {
+            throw new IllegalArgumentException("Длина массива меньше нуля.");
         }
-    vector = new double[n];
+        vector = new double[n];
     }
 
     public Vector(Vector vector) {
