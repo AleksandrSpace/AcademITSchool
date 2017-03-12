@@ -4,8 +4,6 @@ import java.util.Arrays;
 
 
 public class Vector {
-
-    //   final double epsilon = 0.0001;
     private double[] vector;
 
     public Vector(int n) {
@@ -16,57 +14,43 @@ public class Vector {
     }
 
     public Vector(Vector vector) {
-        double[] old = vector.vector;
-        System.arraycopy(old, 0, vector.vector, 0, old.length);
         this.vector = vector.vector;
     }
 
     public Vector(double[] vector) {
-
-        System.arraycopy(vector, 0, vector, 0, vector.length);
-
-        this.vector = vector;
+        this.vector = Arrays.copyOf(vector, vector.length);
     }
 
     public Vector(double[] vector, int n) {
         this.vector = Arrays.copyOf(vector, n);
     }
 
-    private static void expanding(Vector vector1, Vector vector2) {
-        int maxLength = Math.max(vector1.vector.length, vector2.vector.length);
-        if (vector1.vector.length < vector2.vector.length) {
-            double[] old = vector1.vector;
-            vector1.vector = new double[maxLength];
-            System.arraycopy(old, 0, vector1.vector, 0, old.length);
-        }
-    }
-
     public static Vector getAddition(Vector vector1, Vector vector2) {
 
-        Vector.expanding(vector1, vector2);
-
-        for (int i = 0; i < vector2.vector.length; ++i) {
-            vector1.vector[i] += vector2.vector[i];
-        }
-        return vector1;
+        Vector vector3 = new Vector(vector1);
+        vector3.getAddition(vector2);
+        return vector3;
     }
 
     public static Vector getSubtraction(Vector vector1, Vector vector2) {
 
-        expanding(vector1, vector2);
-
-        for (int i = 0; i < vector2.vector.length; ++i) {
-            vector1.vector[i] -= vector2.vector[i];
-        }
-        return vector1;
+        Vector vector3 = new Vector(vector1);
+        vector3.getSubtraction(vector2);
+        return vector3;
     }
 
-    public static Vector getMultiplicationScalar(Vector vector1, int x) {
+    public static double getMultiplication(Vector vector1, Vector vector2) {
 
-        for (int i = 0; i < vector1.vector.length; ++i) {
-            vector1.vector[i] *= x;
+        vector2.expanding(vector1);
+
+        double n = 0;
+        int i = 0;
+
+        for (double e : vector1.vector) {
+            n += e * vector2.vector[i];
+            i++;
         }
-        return vector1;
+        return n;
     }
 
     public int getSize() {
@@ -114,47 +98,27 @@ public class Vector {
         }
         return this;
     }
-/*
-    public Vector getUnfolding() {
-
-        for (int i = 0; i < this.vector.length; ++i) {
-            this.vector[i] *= -1;
-        }
-        return this;
-    }
-    */
 
     public double getLength() {
 
         double sum = 0;
-        Vector vector1 = new Vector(this.vector);
+        double a;
 
-        for (int i = 0; i < vector1.vector.length; ++i) {
-
-            this.vector[i] = (Math.pow(vector1.vector[i], 2));
-            sum += this.vector[i];
+        for (double e : vector) {
+            a = (Math.pow(e, 2));
+            sum += a;
         }
         return Math.abs(Math.sqrt(sum));
     }
 
-    public double getComponentsIndex(int i) {
+    public double getComponents(int i) {
         return this.vector[i];
     }
 
-    public double setComponentsIndex(int i, double x) {
+    public double setComponents(int i, double x) {
         return this.vector[i] = x;
     }
 
-    /*
-        private boolean isEpsilon(Vector vector) {
-
-            for (int i = 1; i < this.vector.length - 1; ++i)
-                if (Math.abs(this.vector[i] - vector.vector[i]) >= epsilon) {
-                    return false;
-                }
-            return true;
-        }
-    */
     public boolean equals(Object o) {
         if (o == this) {
             return true;
@@ -163,17 +127,10 @@ public class Vector {
             return false;
         }
         Vector vector = (Vector) o;
-        return (this.vector.length == vector.vector.length) && Arrays.equals(this.vector, vector.vector);    //isEpsilon(vector);
+        return (this.vector.length == vector.vector.length) && Arrays.equals(this.vector, vector.vector);
     }
 
     public int hashCode() {
-//
-        //final int prime = 11;
-        //int hash = 1;
-        //for (int i = 0; i < this.vector.length; ++i) {
-        //hash = prime * hash + (int) this.vector[i];
-        //}
-        //
         return Arrays.hashCode(vector);
     }
 }
