@@ -95,9 +95,9 @@ public class Main {
             Vector vector12 = Vector.getSubtraction(vector, vector2);
             System.out.printf("Полученный вычитанием вектор12:%s%n", vector12);
 
-            double[] a10 = {1, 2, 3, 0, 0, 0};
+            double[] a10 = {1, 2, 2, 3, 0, 0, 0};
             vector = new Vector(a10);
-            double[] b6 = {1, 2, 3};
+            double[] b6 = {1, 2, 2, 3};
             vector2 = new Vector(b6);
 
             System.out.printf("Скалярное умножение векторов: %10f%n", Vector.getMultiplication(vector, vector2));

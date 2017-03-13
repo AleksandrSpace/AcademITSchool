@@ -41,13 +41,12 @@ public class Vector {
 
     public static double getMultiplication(Vector vector1, Vector vector2) {
 
-        vector2.expand(vector1);
-
         double multiplication = 0;
+        int length = Math.min(vector1.vector.length, vector2.vector.length);
 
-        for (int i = 0; i < vector1.vector.length; ++i) {
+        for (int i = 0; i < length; ++i) {
             multiplication += vector2.vector[i] * vector1.vector[i];
-            i++;
+
         }
         return multiplication;
     }
