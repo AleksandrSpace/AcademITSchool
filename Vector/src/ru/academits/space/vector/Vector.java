@@ -41,16 +41,15 @@ public class Vector {
 
     public static double getMultiplication(Vector vector1, Vector vector2) {
 
-        Vector vector3 = new Vector(vector1);
-        vector3.expand(vector2);
+        vector2.expand(vector1);
 
-        double n = 0;
+        double multiplication = 0;
 
-        for (int i = 0; i < vector3.vector.length; ++i) {
-            n += vector3.vector[i] * vector3.vector[i];
+        for (int i = 0; i < vector1.vector.length; ++i) {
+            multiplication += vector2.vector[i] * vector1.vector[i];
             i++;
         }
-        return n;
+        return multiplication;
     }
 
     public int getSize() {
