@@ -41,13 +41,13 @@ public class Vector {
 
     public static double getMultiplication(Vector vector1, Vector vector2) {
 
-        vector2.expanding(vector1);
+        Vector vector3 = new Vector(vector1);
+        vector3.expand(vector2);
 
         double n = 0;
-        int i = 0;
 
-        for (double e : vector1.vector) {
-            n += e * vector2.vector[i];
+        for (int i = 0; i < vector3.vector.length; ++i) {
+            n += vector3.vector[i] * vector3.vector[i];
             i++;
         }
         return n;
@@ -62,7 +62,7 @@ public class Vector {
         return s1.replace("]", "}");
     }
 
-    private void expanding(Vector vector) {
+    private void expand(Vector vector) {
         int maxLength = Math.max(this.vector.length, vector.vector.length);
         if (this.vector.length < vector.vector.length) {
             double[] old = this.vector;
@@ -73,7 +73,7 @@ public class Vector {
 
     public Vector getAddition(Vector vector) {
 
-        expanding(vector);
+        expand(vector);
 
         for (int i = 0; i < vector.vector.length; ++i) {
             this.vector[i] += vector.vector[i];
@@ -83,7 +83,7 @@ public class Vector {
 
     public Vector getSubtraction(Vector vector) {
 
-        expanding(vector);
+        expand(vector);
 
         for (int i = 0; i < vector.vector.length; ++i) {
             this.vector[i] -= vector.vector[i];
@@ -102,21 +102,19 @@ public class Vector {
     public double getLength() {
 
         double sum = 0;
-        double a;
 
         for (double e : vector) {
-            a = (Math.pow(e, 2));
-            sum += a;
+            sum += (Math.pow(e, 2));
         }
-        return Math.abs(Math.sqrt(sum));
+        return Math.sqrt(sum);
     }
 
-    public double getComponents(int i) {
+    public double getComponent(int i) {
         return this.vector[i];
     }
 
-    public double setComponents(int i, double x) {
-        return this.vector[i] = x;
+    public void setComponent(int i, double x) {
+        this.vector[i] = x;
     }
 
     public boolean equals(Object o) {

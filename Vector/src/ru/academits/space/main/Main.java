@@ -64,11 +64,11 @@ public class Main {
             vector = new Vector(a6);
 
             int index = 2;
-            System.out.printf("Элемент под индексом %11d = %f%n", index, vector.getComponents(index));
+            System.out.printf("Элемент под индексом %11d = %f%n", index, vector.getComponent(index));
 
             int index2 = 2;
             double x = 5.6;
-            vector3.setComponents(index2, x);
+            vector3.setComponent(index2, x);
             System.out.printf("Полученный вектор10 с новым значением: %s%n", vector3);
 
             double[] a7 = {3, 6, 9.0000, 0, 0, 0};
