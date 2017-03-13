@@ -46,7 +46,6 @@ public class Vector {
 
         for (int i = 0; i < length; ++i) {
             multiplication += vector2.vector[i] * vector1.vector[i];
-
         }
         return multiplication;
     }
@@ -96,6 +95,13 @@ public class Vector {
         }
         return this;
     }
+
+    public Vector getRevers() {
+
+        int revers = -1;
+        return getMultiplicationScalar(revers);
+    }
+
 
     public double getLength() {
 

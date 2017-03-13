@@ -1,11 +1,10 @@
-package ru.academits.space.insertionsort;
+package ru.academits.space.maincft;
+
+import ru.academits.space.insertionsort.IntegerComparator;
 
 import java.util.Comparator;
 import java.util.List;
 
-/**
- * Created by Александр on 13.03.2017.
- */
 public class Mode {
     public static <T> List select(String mode, Comparator<T> comparator) {
         try {
@@ -22,4 +21,3 @@ public class Mode {
             return list;
 
         }
-    }
