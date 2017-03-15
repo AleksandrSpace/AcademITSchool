@@ -27,12 +27,12 @@ public class MainCFT {
             switch (args[2]) {
                 case "-i":
                     ArrayList<Integer> resultArrayInt = ReadNumbers.read(args[0]);
-                    resultArrayInt = (ArrayList<Integer>) InsertionSort.sorting(resultArrayInt, ModeSort.select(args[3], new IntegerComparator()));
+                    resultArrayInt = InsertionSort.sorting(resultArrayInt, ModeSort.select(args[3], new IntegerComparator()));
                     Write.write(resultArrayInt, args[1]);
                     break;
                 case "-s":
                     ArrayList<String> resultArrayString = ReadLines.read(args[0]);
-                    resultArrayString = (ArrayList<String>) InsertionSort.sorting(resultArrayString, ModeSort.select(args[3], new StringComparator()));
+                    resultArrayString = InsertionSort.sorting(resultArrayString, ModeSort.select(args[3], new StringComparator()));
                     Write.write(resultArrayString, args[1]);
                     break;
                 default:

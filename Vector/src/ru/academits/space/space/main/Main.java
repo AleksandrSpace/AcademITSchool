@@ -51,7 +51,7 @@ public class Main {
             double[] a4 = {3, 6, 9.0001, 0, 0, 0};
             vector = new Vector(a4);
 
-            Vector vector9 = vector.getRevers();
+            Vector vector9 = vector.getRever();
             System.out.printf("Полученный разворот вектор9: %41s%n", vector9);
 
             double[] a5 = {3, 3, 3, 3, 0, 0};

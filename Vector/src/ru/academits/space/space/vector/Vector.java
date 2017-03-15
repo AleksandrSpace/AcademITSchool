@@ -96,7 +96,7 @@ public class Vector {
         return this;
     }
 
-    public Vector getRevers() {
+    public Vector getRever() {
 
         int revers = -1;
         return getMultiplicationScalar(revers);

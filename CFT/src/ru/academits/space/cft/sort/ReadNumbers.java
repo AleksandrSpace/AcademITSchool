@@ -13,7 +13,7 @@ public class ReadNumbers {
         if (fileInput.equals("inputCFTInt.txt")) {
             ArrayList<Integer> numberArray = new ArrayList<>(100);
 
-            try (Scanner scan = new Scanner(new FileInputStream(fileInput))) {
+            try (Scanner scan = new Scanner(new FileInputStream("inputCFTInt.txt"))) {
                 while (scan.hasNextInt()) {
                     numberArray.add(scan.nextInt());
                 }
